@@ -1,0 +1,44 @@
+[Project]
+Current Flow=Generic
+VCS=0
+version=4
+Current Config=compile
+[Configurations]
+compile=Arch_Project_Pipeline
+[Library]
+Arch_Project_Pipeline=.\Arch_Project_Pipeline\Arch_Project_Pipeline.lib
+[$LibMap$]
+Arch_Project_Pipeline=.
+Active_lib=
+[Settings]
+FLOW_TYPE=HDL
+LANGUAGE=VERILOG
+REFRESH_FLOW=1
+FLOWTOOLS=NONE
+FAMILY=
+[Files]
+/Data_Path.v=-1
+/PC_CU.v=-1
+/Reg_File.v=-1
+/ALU.v=-1
+/Main_CU.v=-1
+/ALU_CU.v=-1
+/Double_CU.v=-1
+/Zero_Comparator.v=-1
+/Forward_And_Stall.v=-1
+/Comparator.v=-1
+[Files.Data]
+.\src\Data_Path.v=Verilog Source Code
+.\src\PC_CU.v=Verilog Source Code
+.\src\Reg_File.v=Verilog Source Code
+.\src\ALU.v=Verilog Source Code
+.\src\Main_CU.v=Verilog Source Code
+.\src\ALU_CU.v=Verilog Source Code
+.\src\Double_CU.v=Verilog Source Code
+.\src\Zero_Comparator.v=Verilog Source Code
+.\src\Forward_And_Stall.v=Verilog Source Code
+.\src\Comparator.v=Verilog Source Code
+[HierarchyViewer]
+HierarchyInformation=
+ShowHide=ShowTopLevel
+Selected=

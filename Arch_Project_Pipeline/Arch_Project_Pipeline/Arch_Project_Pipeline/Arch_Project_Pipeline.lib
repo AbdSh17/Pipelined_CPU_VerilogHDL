@@ -1,0 +1,73 @@
+timestamp=1749034855811
+
+[~A]
+LastVerilogToplevel=test_D_CU
+ModifyID=34
+Version=74
+c:/My_Designs/Arch_Project_Pipeline/Arch_Project_Pipeline/src/ALU.v=0*50237*51096
+c:/My_Designs/Arch_Project_Pipeline/Arch_Project_Pipeline/src/Comparator.v=0*55735*56281
+c:/My_Designs/Arch_Project_Pipeline/Arch_Project_Pipeline/src/Data_Path.v_PC_CU.v_Reg_File.v_ALU.v_Main_CU.v_ALU_CU.v_Double_CU.v_Zero_Comparator.v_Forward_And_Stall.v_Comparator.v=0*58288*60077
+c:/My_Designs/Arch_Project_Pipeline/Arch_Project_Pipeline/src/Double_CU.v=0*72118*73256
+c:/My_Designs/Arch_Project_Pipeline/Arch_Project_Pipeline/src/PC_CU.v=0*8857*9702
+
+[~MFT]
+0=8|0Arch_Project_Pipeline.mgf|73256|41233
+1=8|1Arch_Project_Pipeline.mgf|158257|147966
+3=16|3Arch_Project_Pipeline.mgf|144684|135259
+
+[$root]
+A/$root=22|||1*153150
+BinW64/$root=3*140945
+SLP=3*141060
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|c73a565f2ade592f8ac1c68f484c92162af1fa5a452fe036d5609a82709daddd
+
+[ALU]
+A/ALU=22|../src/ALU.v|1|1*115597
+BinW64/ALU=3*115867
+R=../src/ALU.v|1
+SLP=3*117937
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|b3eb40c25b2a3c0379c7730185183eecb64336c79dc5b1547d6473d18affbfb5
+
+[D_FF]
+A/D_FF=22|../src/Double_CU.v|40|1*157008
+BinW64/D_FF=3*142613
+R=../src/Double_CU.v|40
+SLP=3*143309
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|bb09490a1162773a1fbf8e4e5138b355ab7d97184a47e4f10ddacf4c30a51dfb
+
+[comparator]
+A/comparator=22|../src/Comparator.v|1|1*124207
+BinW64/comparator=3*122607
+R=../src/Comparator.v|1
+SLP=3*123608
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|380097b371b0850258ab7f532461b4d79a5f0fe3076e657a3a0f29edf58bad2fa12b72b5d6e99ebb4dd3d616453a17a5
+
+[double_CU]
+A/double_CU=22|../src/Double_CU.v|1|1*153540
+BinW64/double_CU=3*141128
+R=../src/Double_CU.v|1
+SLP=3*142101
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|21774895b28943a531c9603cb6277f3ff14d285131be0677843acf48eb96078d06e86477ec56886cf4a516b0116f8053
+
+[test_ALU]
+A/test_ALU=22|../src/ALU.v|33|1*117607
+BinW64/test_ALU=3*118302
+R=../src/ALU.v|33
+SLP=3*119760
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|a305e3f1bdb1f11f1fe881d2977db4ca8e1a343e7c38e3fb4be78ef315d1c7dff6b09f0faf1eda77b12bdafb2998e83c
+
+[test_D_CU]
+A/test_D_CU=22|../src/Double_CU.v|50|1*158257
+BinW64/test_D_CU=3*143492
+R=../src/Double_CU.v|50
+SLP=3*144684
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|3430d4a549aa8e9e4ed2fef85b193992aa63e7747a9a0a65c828a8cf245f80eaece455b7c7306c35f60b319037feeab0
+
+[~U]
+$root=12|0*71202|
+ALU=12|0*57034|
+D_FF=12|0*71694|
+comparator=12|0*58034|
+double_CU=12|0*71416|
+test_ALU=12|0*57339||0x10
+test_D_CU=12|0*71923||0x10

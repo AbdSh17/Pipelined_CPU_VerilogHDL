@@ -1,0 +1,11 @@
+[Version]
+Version=15.0
+[Designs]
+arch_project_pipeline=.\Arch_Project_Pipeline\Arch_Project_Pipeline.adf
+[Browser]
+sort=order
+mode=none
+[Order]
+order=1
+[Expand]
+arch_project_pipeline=1

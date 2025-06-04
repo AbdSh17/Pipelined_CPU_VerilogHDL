@@ -1,0 +1,1 @@
+-o c:/My_Designs/Arch_Project_Pipeline/Arch_Project_Pipeline/compile -lc c:/My_Designs/Arch_Project_Pipeline/library.cfg -fl c:/My_Designs/Arch_Project_Pipeline/Arch_Project_Pipeline/projlib.cfg -pli "C:/Aldec/Active-HDL-Student-Edition/bin/systf.dll" -O2 -sve -msg 5 -sv2k17 -work Arch_Project_Pipeline c:/My_Designs/Arch_Project_Pipeline/Arch_Project_Pipeline/src/Double_CU.v 

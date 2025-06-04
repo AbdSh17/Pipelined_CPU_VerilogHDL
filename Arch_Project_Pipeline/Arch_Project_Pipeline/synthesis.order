@@ -1,0 +1,10 @@
+i<>.\src\Data_Path.v
+i<>.\src\PC_CU.v
+i<>.\src\REG_File.v
+i<>.\src\ALU.v
+i<>.\src\Main_CU.v
+i<>.\src\ALU_CU.v
+i<>.\src\Double_CU.v
+i<>.\src\Zero_Comparator.v
+i<>.\src\Forward_And_Stall.v
+i<>.\src\Comparator.v

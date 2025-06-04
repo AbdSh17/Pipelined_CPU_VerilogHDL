@@ -1,0 +1,16 @@
+[OPENDOC|Aldec.Hde.HdePlugIn.7|.\Arch_Project_Pipeline\src/ALU.v|]
+TemplateId=2
+tab=lu
+[OPENDOC|Aldec.Hde.HdePlugIn.7|.\Arch_Project_Pipeline\src/Data_Path.v|]
+TemplateId=2
+tab=lu
+[OPENDOC|Aldec.Hde.HdePlugIn.7|.\Arch_Project_Pipeline\src/PC_CU.v|]
+TemplateId=2
+tab=lu
+[OPENDOC|Aldec.Hde.HdePlugIn.7|.\Arch_Project_Pipeline\src/Double_CU.v|]
+TemplateId=2
+ActiveDocument=1
+tab=lu
+[OPENDOC|Aldec.Hde.HdePlugIn.7|.\Arch_Project_Pipeline\src/Comparator.v|]
+TemplateId=2
+tab=lu
