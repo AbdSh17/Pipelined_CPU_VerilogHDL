@@ -1,14 +1,22 @@
-Active-HDL 15.0.261.9132 2025-06-04 20:39:28
+Active-HDL 15.0.261.9132 2025-06-07 00:51:43
 
 Elaboration top modules:
-Verilog Module                test_D_CU
+Verilog Module                test_if
 
 
 ---------------------------------------------------------------------------------------------------------
 Verilog Module          | Library               | Info | Compiler Version          | Compilation Options
 ---------------------------------------------------------------------------------------------------------
-test_D_CU               | arch_project_pipeline |      | 15.0.261.9132 (Windows64) | -O2 -sv2k17
+test_if                 | arch_project_pipeline |      | 15.0.261.9132 (Windows64) | -O2 -sv2k17
+IF                      | arch_project_pipeline |      | 15.0.261.9132 (Windows64) | -O2 -sv2k17
+program_counter         | arch_project_pipeline |      | 15.0.261.9132 (Windows64) | -O2 -sv2k17
+pc_next                 | arch_project_pipeline |      | 15.0.261.9132 (Windows64) | -O2 -sv2k17
+IS_MEM                  | arch_project_pipeline |      | 15.0.261.9132 (Windows64) | -O2 -sv2k17
 double_CU               | arch_project_pipeline |      | 15.0.261.9132 (Windows64) | -O2 -sv2k17
+MUX                     | arch_project_pipeline |      | 15.0.261.9132 (Windows64) | -O2 -sv2k17
+register                | arch_project_pipeline |      | 15.0.261.9132 (Windows64) | -O2 -sv2k17
+adder                   | arch_project_pipeline |      | 15.0.261.9132 (Windows64) | -O2 -sv2k17
+InstructionMemory       | arch_project_pipeline |      | 15.0.261.9132 (Windows64) | -O2 -sv2k17
 D_FF                    | arch_project_pipeline |      | 15.0.261.9132 (Windows64) | -O2 -sv2k17
 comparator              | arch_project_pipeline |      | 15.0.261.9132 (Windows64) | -O2 -sv2k17
 ---------------------------------------------------------------------------------------------------------
@@ -18,3 +26,9 @@ Library                 | Comment
 ---------------------------------------------------------------------------------------------------------
 arch_project_pipeline   | None
 ---------------------------------------------------------------------------------------------------------
+
+
+Simulation Options: asim -O5 +access +r +m+test_if test_if
+
+
+The performance of simulation is reduced. Version Student Edition
