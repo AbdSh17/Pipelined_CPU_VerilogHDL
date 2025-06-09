@@ -1,13 +1,21 @@
-timestamp=1749246701120
+timestamp=1749422876413
 
 [~A]
 C:/Users/HP/Music/Pipeline_Arch_Project2/Arch_Project_Pipeline/Arch_Project_Pipeline/src/Comparator.v=0*657075*657952
 C:/Users/HP/Music/Pipeline_Arch_Project2/Arch_Project_Pipeline/Arch_Project_Pipeline/src/Data_Path.v=0*766956*768921
 C:/Users/HP/Music/Pipeline_Arch_Project2/Arch_Project_Pipeline/Arch_Project_Pipeline/src/Data_Path.v_PC_CU.v_Reg_File.v_ALU.v_Main_CU.v_ALU_CU.v_Double_CU.v_Zero_Comparator.v_Forward_And_Stall.v_Comparator.v=0*865061*870109
+C:/Users/HP/Music/Pipeline_Arch_Project2/Arch_Project_Pipeline/Arch_Project_Pipeline/src/Decode.v=0*1235844*1238814
 C:/Users/HP/Music/Pipeline_Arch_Project2/Arch_Project_Pipeline/Arch_Project_Pipeline/src/Double_CU.v=0*179623*180980
 C:/Users/HP/Music/Pipeline_Arch_Project2/Arch_Project_Pipeline/Arch_Project_Pipeline/src/Forward_And_Stall.v=0*234240*235749
-LastVerilogToplevel=test_forward_and_stall
-ModifyID=162
+C:/Users/HP/Music/Pipeline_Arch_Project2/Arch_Project_Pipeline/Arch_Project_Pipeline/src/IF.v=0*6656014*6658292
+C:/Users/HP/Music/Pipeline_Arch_Project2/Arch_Project_Pipeline/Arch_Project_Pipeline/src/IF.v_PC_CU.v_Reg_File.v_ALU.v_Main_CU.v_ALU_CU.v_Double_CU.v_Zero_Comparator.v_Forward_And_Stall.v_Side_Gates.v_Decode.v=0*2119455*2128505
+C:/Users/HP/Music/Pipeline_Arch_Project2/Arch_Project_Pipeline/Arch_Project_Pipeline/src/IF.v_PC_CU.v_Reg_File.v_ALU.v_Main_CU.v_ALU_CU.v_Double_CU.v_Zero_Comparator.v_Forward_And_Stall.v_Side_Gates.v_Decode.v_Execute.v=0*2221205*2231129
+C:/Users/HP/Music/Pipeline_Arch_Project2/Arch_Project_Pipeline/Arch_Project_Pipeline/src/IF.v_PC_CU.v_Reg_File.v_ALU.v_Main_CU.v_ALU_CU.v_Double_CU.v_Zero_Comparator.v_Forward_And_Stall.v_Side_Gates.v_Decode.v_Execute.v_data_path.v=0*2263427*2273459
+C:/Users/HP/Music/Pipeline_Arch_Project2/Arch_Project_Pipeline/Arch_Project_Pipeline/src/IF.v_PC_CU.v_Reg_File.v_ALU.v_Main_CU.v_ALU_CU.v_Double_CU.v_Zero_Comparator.v_Forward_And_Stall.v_Side_Gates.v_Decode.v_Execute.v_data_path.v_mem.v=0*2285127*2295614
+C:/Users/HP/Music/Pipeline_Arch_Project2/Arch_Project_Pipeline/Arch_Project_Pipeline/src/IF.v_PC_CU.v_Reg_File.v_ALU.v_Main_CU.v_ALU_CU.v_Double_CU.v_Zero_Comparator.v_Forward_And_Stall.v_Side_Gates.v_Decode.v_Execute.v_data_path.v_mem.v_WB.v=0*6808045*6819257
+C:/Users/HP/Music/Pipeline_Arch_Project2/Arch_Project_Pipeline/Arch_Project_Pipeline/src/data_path.v=0*3444755*3446064
+LastVerilogToplevel=test_decode
+ModifyID=444
 Version=74
 c:/My_Designs/Arch_Project_Pipeline/Arch_Project_Pipeline/src/ALU.v=0*50237*51096
 c:/My_Designs/Arch_Project_Pipeline/Arch_Project_Pipeline/src/Comparator.v=0*55735*56281
@@ -16,22 +24,29 @@ c:/My_Designs/Arch_Project_Pipeline/Arch_Project_Pipeline/src/Double_CU.v=0*7211
 c:/My_Designs/Arch_Project_Pipeline/Arch_Project_Pipeline/src/PC_CU.v=0*8857*9702
 
 [~MFT]
-0=25|0Arch_Project_Pipeline.mgf|870109|469146
-1=42|1Arch_Project_Pipeline.mgf|2955162|2911725
-3=84|3Arch_Project_Pipeline.mgf|2307590|2274543
+0=43|0Arch_Project_Pipeline.mgf|6819257|3482724
+1=78|1Arch_Project_Pipeline.mgf|28846958|28739587
+3=156|3Arch_Project_Pipeline.mgf|19020513|18953445
 
 [$root]
-A/$root=22|||1*2913422
-BinW64/$root=3*2276002
-SLP=3*2276117
-Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|c73a565f2ade592f8ac1c68f484c9216df550fc8182c3536716dac6b29975662
+A/$root=22|||1*28747118
+BinW64/$root=3*18956015
+SLP=3*18956130
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|c73a565f2ade592f8ac1c68f484c9216999bf6c34ef1b5b4c5faf37119c25d11
 
 [ALU]
-A/ALU=22|../src/ALU.v|1|1*2939957
-BinW64/ALU=3*2292184
+A/ALU=22|../src/ALU.v|1|1*28779251
+BinW64/ALU=3*18976713
 R=../src/ALU.v|1
-SLP=3*2294253
-Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|b3eb40c25b2a3c0379c7730185183eec432efa60560248d4f5010667bbb66fb2
+SLP=3*18978789
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|b3eb40c25b2a3c0379c7730185183eec9a6340603eae9ac218ec85ab7fe8946b
+
+[ALU_CU]
+A/ALU_CU=22|../src/ALU_CU.v|1|1*28785413
+BinW64/ALU_CU=3*18983357
+R=../src/ALU_CU.v|1
+SLP=3*18984030
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|6495edb0b69e3cfeda7ef1c560cceebc35d4d155bc41e943cedd875ec54c0e02
 
 [CPU]
 A/CPU=22|../src/Data_Path.v|1|1*1859195
@@ -41,95 +56,186 @@ SLP=3*1485236
 Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|8e7b05e79f53f2dfbaf3f223a151a5e1ddf65f0382b38ae20d98acc1bb84ab6b
 
 [D_FF]
-A/D_FF=22|../src/Double_CU.v|56|1*2943886
-BinW64/D_FF=3*2296559
-R=../src/Double_CU.v|56
-SLP=3*2297255
-Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|bb09490a1162773a1fbf8e4e5138b355e5948455e3e590b0a91a6ea54cd6ead7
+A/D_FF=22|../src/Double_CU.v|37|1*28786400
+BinW64/D_FF=3*18984466
+R=../src/Double_CU.v|37
+SLP=3*18985162
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|bb09490a1162773a1fbf8e4e5138b35596e960043c85911b2855b7d2285f24eb
 
 [IF]
-A/IF=22|../src/Data_Path.v|1|1*2913876
-BinW64/IF=3*2276185
-R=../src/Data_Path.v|1
-SLP=3*2276474
-Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|fef692d5df769aaa310028baa510d05510fb2e76f1f8d49f4e166d3e791840ba
+A/IF=22|../src/IF.v|1|1*28747620
+BinW64/IF=3*18956198
+R=../src/IF.v|1
+SLP=3*18956737
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|fef692d5df769aaa310028baa510d055531fb55757d2285689bb64ad2a62af53
 
 [IS_MEM]
-A/IS_MEM=22|../src/Data_Path.v|54|1*2922242
-BinW64/IS_MEM=3*2279244
-R=../src/Data_Path.v|54
-SLP=3*2280138
-Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|83c2526e7cc8dede19b9214db1192e32960913a384d43b1ba2dfd0c8d84f11c0
+A/IS_MEM=22|../src/IF.v|67|1*28756811
+BinW64/IS_MEM=3*18959587
+R=../src/IF.v|67
+SLP=3*18960482
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|83c2526e7cc8dede19b9214db1192e32575e71776560e06464f83a3a5d49928a
 
 [InstructionMemory]
-A/InstructionMemory=22|../src/Data_Path.v|73|1*2930815
-BinW64/InstructionMemory=3*2284575
-R=../src/Data_Path.v|73
-SLP=3*2285585
-Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|b86a443a1d82ec234d09f8a4c7b8cd6b46404b5c54a2301d05949f8e3043a720127492b664507124cb6b92737e5149d4
+A/InstructionMemory=22|../src/IF.v|86|1*28765448
+BinW64/InstructionMemory=3*18965038
+R=../src/IF.v|86
+SLP=3*18966170
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|b86a443a1d82ec234d09f8a4c7b8cd6b46404b5c54a2301d05949f8e3043a7200a91e12f99b133b8d74c18a8c9a06d71
 
 [MUX]
-A/MUX=22|../src/Comparator.v|23|1*2927848
-BinW64/MUX=3*2281937
-R=../src/Comparator.v|23
-SLP=3*2283108
-Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|a89496fddcacb61a61cc051a8bee45da6c8c99adf5feb48caa3cf0332d6c4755
+A/MUX=22|../src/Side_Gates.v|23|1*28763993
+BinW64/MUX=3*18963668
+R=../src/Side_Gates.v|23
+SLP=3*18964839
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|a89496fddcacb61a61cc051a8bee45da8350330162f4c10e53bfe5f8772795e1
+
+[Main_Control]
+A/Main_Control=22|../src/Main_CU.v|1|1*28783180
+BinW64/Main_Control=3*18981095
+R=../src/Main_CU.v|1
+SLP=3*18982382
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|943634614d59e28b87d96bd4e44719efc12b616ba75f699d656194893cce698f48004c50b7099e0a6621fb344ed8d5b2
+
+[PC_CU]
+A/PC_CU=22|../src/PC_CU.v|2|1*28774367
+BinW64/PC_CU=3*18973494
+R=../src/PC_CU.v|2
+SLP=3*18974556
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|79f05a694c39ca256267333b7afb62b3ef5f0c8df9f264f7aa8757d6bf2b838f
+
+[Reg_File]
+A/Reg_File=22|../src/Reg_File.v|1|1*28776632
+BinW64/Reg_File=3*18975029
+R=../src/Reg_File.v|1
+SLP=3*18976245
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|8a90bcf4556479770a754d8d09832bc3fc185cea3d725fb94962b8e16b605557e7aaca9ce789aa47a9309f8d98294275
 
 [adder]
-A/adder=22|../src/Comparator.v|39|1*2932388
-BinW64/adder=3*2285952
-R=../src/Comparator.v|39
-SLP=3*2286777
-Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|aa2639a8a5a70ec6691b492f142f0ca269cb25c1cdb461ddd54ab0c988c28ec8
+A/adder=22|../src/Side_Gates.v|39|1*28767052
+BinW64/adder=3*18966718
+R=../src/Side_Gates.v|39
+SLP=3*18967546
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|aa2639a8a5a70ec6691b492f142f0ca2acafbf56d57a649de49017750bac1e94
+
+[branch_and_jump]
+A/branch_and_jump=22|../src/Decode.v|138|1*28807215
+BinW64/branch_and_jump=3*18998388
+R=../src/Decode.v|138
+SLP=3*18999386
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|d98f55ee94219c9ab1af9c131b6869514c9abb84f33859653ad5e1802e1d1f70c790ae0ffdd5edf8a9c79e4534475224
 
 [comparator]
-A/comparator=22|../src/Comparator.v|2|1*2945135
-BinW64/comparator=3*2297438
-R=../src/Comparator.v|2
-SLP=3*2298439
-Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|380097b371b0850258ab7f532461b4d79a5f0fe3076e657a3a0f29edf58bad2f863dee4025d86c434eff7df3ec8f72bf
+A/comparator=22|../src/Side_Gates.v|2|1*28787649
+BinW64/comparator=3*18985345
+R=../src/Side_Gates.v|2
+SLP=3*18986346
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|380097b371b0850258ab7f532461b4d79a5f0fe3076e657a3a0f29edf58bad2f799fa3b4d85d649475945be0e7f21b02
+
+[control_signals]
+A/control_signals=22|../src/Decode.v|113|1*28804520
+BinW64/control_signals=3*18997331
+R=../src/Decode.v|113
+SLP=3*18997941
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|8f1f6bbcb2a11a755a6ef5a8c0ba2b064898285a08e860ea98f8831e4cd9dfb9e4cf9d2fe31d41acad3f07d58e47ab42
+
+[d_if]
+A/d_if=22|../src/data_path.v|1|1*8934870
+BinW64/d_if=3*6477237
+R=../src/data_path.v|1
+SLP=3*6477351
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|47a2fa889cc8003e26f4149feb31da5175bdfa16e420b4ef415633c9478ce765
+
+[data_path]
+A/data_path=22|../src/data_path.v|1|1*28831972
+BinW64/data_path=3*19014712
+R=../src/data_path.v|1
+SLP=3*19015394
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|ab18108e556098cba91a2de49c154fb8dfc7522c7c3381981427e4f29033fa88c7660e5febe0acf4c8334fe5177dbfa2
 
 [dcu]
-A/dcu=22|../src/Double_CU.v|36|1*2946390
-BinW64/dcu=3*2298751
+A/dcu=22|../src/Double_CU.v|36|1*24794739
+BinW64/dcu=3*16450322
 R=../src/Double_CU.v|36
-SLP=3*2299227
-Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|6391c90d1291c729d6eb698be16d988d532f40594e8236f3a6bb5bda46a1dd3a
+SLP=3*16450798
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|6391c90d1291c729d6eb698be16d988d50cfba825c5e1510ab3c50f5e5798ddc
+
+[decode]
+A/decode=22|../src/Decode.v|1|1*28798463
+BinW64/decode=3*18996293
+R=../src/Decode.v|1
+SLP=3*18996760
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|a2352d9517570379617fafcd704885a30e7da877160feb783ea0a1fbb617ebe7
 
 [double_CU]
-A/double_CU=22|../src/Double_CU.v|1|1*2924494
-BinW64/double_CU=3*2280554
+A/double_CU=22|../src/Double_CU.v|1|1*28759049
+BinW64/double_CU=3*18960892
 R=../src/Double_CU.v|1
-SLP=3*2281469
-Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|21774895b28943a531c9603cb6277f3ff14d285131be0677843acf48eb96078db82f67e571d1f88248140ca8ceac4752
+SLP=3*18961899
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|21774895b28943a531c9603cb6277f3ff14d285131be0677843acf48eb96078d34c969122f2bb53cd50815ff55ab886e
+
+[execute]
+A/execute=22|../src/Execute.v|1|1*28827426
+BinW64/execute=3*19013309
+R=../src/Execute.v|1
+SLP=3*19014160
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|2ce3eee1a7e390a084f41879110346bc26527262ddaa47cb266f3a3c4d9b973a029471097fda37fa7985f68832d83584
 
 [forward_and_stall]
-A/forward_and_stall=22|../src/Forward_And_Stall.v|1|1*2949784
-BinW64/forward_and_stall=3*2302531
+A/forward_and_stall=22|../src/Forward_And_Stall.v|1|1*28790562
+BinW64/forward_and_stall=3*18989709
 R=../src/Forward_And_Stall.v|1
-SLP=3*2304631
-Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|68022d0fb2055b1659aa47eb1de105a6abd17a42d81742cc07610c1e325ecff94d2fa0648295f4b96cc61b62ff76374c
+SLP=3*18991895
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|68022d0fb2055b1659aa47eb1de105a6abd17a42d81742cc07610c1e325ecff9a5086b6818fb627cd7352a8a501a578e
+
+[imm_value]
+A/imm_value=22|../src/Decode.v|90|1*28809759
+BinW64/imm_value=3*18999883
+R=../src/Decode.v|90
+SLP=3*19001262
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|da18b593d56a5a93cb3dc038b5fca52e18796be1c5367029fe50f9a304d138661decd72a99f10e9cab06ab78f9509d3a
+
+[mem]
+A/mem=22|../src/mem.v|1|1*28838896
+BinW64/mem=3*19015794
+R=../src/mem.v|1
+SLP=3*19016604
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|ac2b1c88a9af0b0d0588c5e0510c5f93bcc5521483aedba9b4da55dba3696974
 
 [pc_next]
-A/pc_next=22|../src/Data_Path.v|96|1*2920399
-BinW64/pc_next=3*2278650
-R=../src/Data_Path.v|96
-SLP=3*2279022
-Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|c74cf494df7cf5f4460bc3719d16fe1b26527262ddaa47cb266f3a3c4d9b973a365bd030eee382107d6fc4b844a166d9
+A/pc_next=22|../src/IF.v|172|1*28754973
+BinW64/pc_next=3*18958991
+R=../src/IF.v|172
+SLP=3*18959363
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|c74cf494df7cf5f4460bc3719d16fe1b26527262ddaa47cb266f3a3c4d9b973a36bb1c97e4ba4a31f5689afe486e2b36
 
 [program_counter]
-A/program_counter=22|../src/Data_Path.v|34|1*2916938
-BinW64/program_counter=3*2276739
-R=../src/Data_Path.v|34
-SLP=3*2278188
-Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|8f4c9b71392661bb64aaf1fd1ecdee3884ee5168192b3e6ad34e2bbdf84bdd45253747b3dbf66409844990e23627339a
+A/program_counter=22|../src/IF.v|47|1*28751526
+BinW64/program_counter=3*18957081
+R=../src/IF.v|47
+SLP=3*18958526
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|8f4c9b71392661bb64aaf1fd1ecdee3884ee5168192b3e6ad34e2bbdf84bdd45f35bb9bcdc6b50db34ad4632f44b5920
+
+[ram_single]
+A/ram_single=22|../src/mem.v|42|1*28846958
+BinW64/ram_single=3*19019290
+R=../src/mem.v|42
+SLP=3*19020513
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|b2a85188e5b2cfc29df95d4e1a472702cf54e2730643285ea3c54543020415c64cf1a8f8237c13d34636d2369eb2ddf4
+
+[reg_file_buf]
+A/reg_file_buf=22|../src/Decode.v|58|1*28812591
+BinW64/reg_file_buf=3*19001769
+R=../src/Decode.v|58
+SLP=3*19003840
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|f9ee6dde6dc583faff546eefc3ea76b96d49c627fe7a5b12aed0013e183dfa3d6ca1368e09571662daa887470715cf5c
 
 [register]
-A/register=22|../src/Comparator.v|52|1*2929303
-BinW64/register=3*2283307
-R=../src/Comparator.v|52
-SLP=3*2284240
-Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|5fa1b53f1300c4835386baab9d0c635e1096506f0a00bc334a610cd78bf011ddbe2da4d5da951eeb84beea42c71c784c
+A/register=22|../src/Side_Gates.v|52|1*28762481
+BinW64/register=3*18962400
+R=../src/Side_Gates.v|52
+SLP=3*18963333
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|5fa1b53f1300c4835386baab9d0c635e1096506f0a00bc334a610cd78bf011ddc668a259ac6747fa5cce61266a9274e3
 
 [tb_instr_mem]
 A/tb_instr_mem=22|../src/Data_Path.v|53|1*1375564
@@ -139,68 +245,130 @@ SLP=3*1092584
 Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|b03fea960295a42ca8778a3543ed97ceff4babb49a6310f8ea4e001f310c7e2dfe0a46fbff39051a222e1bb6fc4d13ae
 
 [test_ALU]
-A/test_ALU=22|../src/ALU.v|33|1*2941967
-BinW64/test_ALU=3*2294618
+A/test_ALU=22|../src/ALU.v|33|1*28781261
+BinW64/test_ALU=3*18979154
 R=../src/ALU.v|33
-SLP=3*2296076
-Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|a305e3f1bdb1f11f1fe881d2977db4ca8e1a343e7c38e3fb4be78ef315d1c7df2fcaf60161782c6217867636a270dfc7
+SLP=3*18980612
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|a305e3f1bdb1f11f1fe881d2977db4ca8e1a343e7c38e3fb4be78ef315d1c7dfbcb1f1bbe47609f2b2591b910bb859f3
 
 [test_D_CU]
-A/test_D_CU=22|../src/Double_CU.v|66|1*2948202
-BinW64/test_D_CU=3*2299483
-R=../src/Double_CU.v|66
-SLP=3*2301154
-Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|3430d4a549aa8e9e4ed2fef85b193992aa63e7747a9a0a65c828a8cf245f80ea6d869dd5b0f0ef45d33971ecc3a342f7
+A/test_D_CU=22|../src/Double_CU.v|47|1*28788904
+BinW64/test_D_CU=3*18986658
+R=../src/Double_CU.v|47
+SLP=3*18988329
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|3430d4a549aa8e9e4ed2fef85b193992aa63e7747a9a0a65c828a8cf245f80ea1d6960838c7ecab61a547e1e097a6ada
 
 [test_IS_MEM]
-A/test_IS_MEM=22|../src/Data_Path.v|155|1*2936068
-BinW64/test_IS_MEM=3*2288618
-R=../src/Data_Path.v|155
-SLP=3*2289657
-Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|4f398e5052017d7d9352cb644f8043dec380eccb41bcf7a2d29c03e3bdabea01688ba2a460770dbfe51711956d78e857
+A/test_IS_MEM=22|../src/IF.v|258|1*28770506
+BinW64/test_IS_MEM=3*18969963
+R=../src/IF.v|258
+SLP=3*18971004
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|4f398e5052017d7d9352cb644f8043dec380eccb41bcf7a2d29c03e3bdabea010e81ee6f3efeffb5791a618697d42377
+
+[test_Main_Control]
+A/test_Main_Control=22|../src/Decode.v|222|1*28821068
+BinW64/test_Main_Control=3*19006554
+R=../src/Decode.v|222
+SLP=3*19008022
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|a05656182b0df92a9d23a91cb01908df7999434f08be35372391b61e2b58e466014798ec0d8883fa315d8412216f219f
+
+[test_PC_CU]
+A/test_PC_CU=22|../src/Decode.v|193|1*28818761
+BinW64/test_PC_CU=3*19004679
+R=../src/Decode.v|193
+SLP=3*19006001
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|3718a71f9eb473dca5804d87eabeff82ee2c3c83052faee9fd767e335d4ed44fb4bcb3ab5ee0a7f4118303d6ea7ba414
+
+[test_Reg_File]
+A/test_Reg_File=22|../src/Decode.v|313|1*28825420
+BinW64/test_Reg_File=3*19010920
+R=../src/Decode.v|313
+SLP=3*19012464
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|d4e8f5e52a79a002499f168b87ea681b76742eef7c752c2b456d08a262edae2d823aedb5632aa5dc5f8c7383f85670a1
+
+[test_bj]
+A/test_bj=22|../src/Decode.v|267|1*28823424
+BinW64/test_bj=3*19008955
+R=../src/Decode.v|267
+SLP=3*19010203
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|e464fb82503264d65361017d8115cc8f26527262ddaa47cb266f3a3c4d9b973a0ee9e0ad5eeb82cac67ea737a10150b9
+
+[test_decode]
+A/test_decode=22|../src/data_path.v|50|1*28845224
+BinW64/test_decode=3*19017950
+R=../src/data_path.v|50
+SLP=3*19018816
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|f47f4e595cf634f0d8f0efe61da1edd34c2b56e797be43a9499e37b85aa081cb1405365812b38f7f40281016004de5de
 
 [test_forward_and_stall]
-A/test_forward_and_stall=22|../src/Forward_And_Stall.v|58|1*2955162
-BinW64/test_forward_and_stall=3*2305776
+A/test_forward_and_stall=22|../src/Forward_And_Stall.v|58|1*28795940
+BinW64/test_forward_and_stall=3*18993058
 R=../src/Forward_And_Stall.v|58
-SLP=3*2307590
-Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|29de46cca6b5367dfede1a63003e80b252cda351efa7a1e0e081af474c74461bd3c51c70dc2277a314abf9bc44cd8a4f
+SLP=3*18994872
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|29de46cca6b5367dfede1a63003e80b252cda351efa7a1e0e081af474c74461b836138c65848180832fe09d8592ff07b
 
 [test_if]
-A/test_if=22|../src/Data_Path.v|113|1*2933574
-BinW64/test_if=3*2286974
-R=../src/Data_Path.v|113
-SLP=3*2288025
-Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|96cca0b86b7d94368a3ab3f44c9f0d5d26527262ddaa47cb266f3a3c4d9b973a05a28e3a0480bb8af57fc65eded5d27c
+A/test_if=22|../src/IF.v|189|1*28768238
+BinW64/test_if=3*18967743
+R=../src/IF.v|189
+SLP=3*18969092
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|96cca0b86b7d94368a3ab3f44c9f0d5d26527262ddaa47cb266f3a3c4d9b973ab9be498ef567a76a5f75749d728c4027
 
 [test_pc]
-A/test_pc=22|../src/Data_Path.v|198|1*2937808
-BinW64/test_pc=3*2290257
-R=../src/Data_Path.v|198
-SLP=3*2291659
-Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|9e734fed34864336d4061b9e1ab2084c26527262ddaa47cb266f3a3c4d9b973ab57e0e8428e981e85d44515093d94806
+A/test_pc=22|../src/IF.v|301|1*28772232
+BinW64/test_pc=3*18971581
+R=../src/IF.v|301
+SLP=3*18972984
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|9e734fed34864336d4061b9e1ab2084c26527262ddaa47cb266f3a3c4d9b973a94c165036c5fe4dcfba88fa40e7e8763
+
+[write_back]
+A/write_back=22|../src/WB.v|1|1*28842799
+BinW64/write_back=3*19017161
+R=../src/WB.v|1
+SLP=3*19017605
+Version=15.0.261.9132 (Windows64)|0000000b789cd3f53752d02d2e33ca3634070010af02ea|0afa266ec313ae12f55e2e4b5ccf9dc36e5c097a9f12960a1e48c41f4ed65d889186a6fdd04e11ff8acba32bb2122c92
 
 [~U]
-$root=12|0*859554|
-ALU=12|0*863135|
+$root=12|0*6797087|
+ALU=12|0*6801338|
+ALU_CU=12|0*6802115|
 CPU=12|0*584606||0x10
-D_FF=12|0*863628|
-IF=12|0*859912|
-IS_MEM=12|0*860941|
-InstructionMemory=12|0*861988|
-MUX=12|0*861482|
-adder=12|0*862251|
-comparator=12|0*863857|
-dcu=12|0*864111||0x10
-double_CU=12|0*861204|
-forward_and_stall=12|0*864578|
-pc_next=12|0*860672|
-program_counter=12|0*860334|
-register=12|0*861740|
+D_FF=12|0*6802325|
+IF=12|0*6797605|
+IS_MEM=12|0*6798628|
+InstructionMemory=12|0*6799686|
+MUX=12|0*6799428|
+Main_Control=12|0*6801831|
+PC_CU=12|0*6800833|
+Reg_File=12|0*6801088|
+adder=12|0*6799949|
+branch_and_jump=12|0*6804351|
+comparator=12|0*6802554|
+control_signals=12|0*6804046|
+d_if=12|0*2283773|
+data_path=12|0*6806343|
+dcu=12|0*5897986||0x10
+decode=12|0*6803485|
+double_CU=12|0*6798891|
+execute=12|0*6805994|
+forward_and_stall=12|0*6803002|
+imm_value=12|0*6804653|
+mem=12|0*6806814|
+pc_next=12|0*6798359|
+program_counter=12|0*6798021|
+ram_single=12|0*6807786|
+reg_file_buf=12|0*6804897|
+register=12|0*6799180|
 tb_instr_mem=12|0*452938||0x10
-test_ALU=12|0*863440||0x10
-test_D_CU=12|0*864384||0x10
-test_IS_MEM=12|0*862721||0x10
-test_forward_and_stall=12|0*864867||0x10
-test_if=12|0*862474||0x10
-test_pc=12|0*862920||0x10
+test_ALU=12|0*6801643||0x10
+test_D_CU=12|0*6802808||0x10
+test_IS_MEM=12|0*6800419||0x10
+test_Main_Control=12|0*6805446||0x10
+test_PC_CU=12|0*6805278||0x10
+test_Reg_File=12|0*6805820||0x10
+test_bj=12|0*6805628||0x10
+test_decode=12|0*6807432||0x10
+test_forward_and_stall=12|0*6803291||0x10
+test_if=12|0*6800172||0x10
+test_pc=12|0*6800618||0x10
+write_back=12|0*6807138|

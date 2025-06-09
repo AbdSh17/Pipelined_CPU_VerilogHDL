@@ -1,6 +1,6 @@
-module double_CU(op_code, rd, clk, add_pc, add_rd, add_imm, turn_off);
+module double_CU(stall, op_code, rd, clk, add_pc, add_rd, add_imm, turn_off);
 	
-	input [5:0] op_code; input [3:0] rd; input clk; // Op code to check if operation is double typel; Clock for D-latch ; rd to check if it's ODD
+	input [5:0] op_code; input [3:0] rd; input clk, stall; // Op code to check if operation is double typel; Clock for D-latch ; rd to check if it's ODD
 	output add_pc, add_rd, add_imm, turn_off; // Flags that D_CU gives
 	
 	wire [3:0] splited_op_code;	// just need four bits (to make the comparator smaller)
@@ -22,7 +22,7 @@ module double_CU(op_code, rd, clk, add_pc, add_rd, add_imm, turn_off);
 	
 	assign operation_is_double = compare_8_bit | compare_9_bit;  // compare if the operation is double
 	assign ff_xor = operation_is_double ^ ff_out;
-	assign ff_in = operation_is_double & ff_xor;
+	assign ff_in = operation_is_double & ff_xor & ~(turn_off) & ~(stall);
 	
 	assign ff_and_op = ff_out & operation_is_double; // if operation is double and second cycle
 	
@@ -32,25 +32,6 @@ module double_CU(op_code, rd, clk, add_pc, add_rd, add_imm, turn_off);
 	assign turn_off = operation_is_double & rd[0]; // if odd RD while the operation is double type
 	
 endmodule 
-
-module dcu(op_code, rd, clk, add_pc, add_rd, add_imm, turn_off);
-	
-	input [5:0] op_code; input [3:0] rd; input clk; // Op code to check if operation is double typel; Clock for D-latch ; rd to check if it's ODD
-	output reg add_pc, add_rd, add_imm, turn_off; // Flags that D_CU gives
-	
-	wire wire_add_pc, wire_add_rd, wire_add_imm, wire_turn_off;
-	
-	double_CU dcu(op_code, rd, clk, wire_add_pc, wire_add_rd, wire_add_imm, wire_turn_off);
-	
-	always @(posedge clk) begin
-		add_pc = wire_add_pc;
-		add_rd = wire_add_rd;
-		add_imm = wire_add_imm;
-		turn_off = wire_turn_off;
-	end
-	
-endmodule
-
 	
 
 module D_FF(clk, data, out);
@@ -64,11 +45,11 @@ module D_FF(clk, data, out);
 endmodule
 
 module test_D_CU;
-	wire add_pc, add_rd, add_imm, turn_off;
+	wire add_pc, add_rd, add_imm, turn_off, stall;
 	reg [5:0] op_code; reg [3:0] rd; reg clk;
 	
 	// dcu dd(op_code, rd, clk, add_pc, add_rd, add_imm, turn_off);
-    double_CU dd(op_code, rd, clk, add_pc, add_rd, add_imm, turn_off);	
+    double_CU dd(stall, op_code, rd, clk, add_pc, add_rd, add_imm, turn_off);	
 	reg change;
 	
 	initial begin

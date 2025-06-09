@@ -1,4 +1,4 @@
-.\src\Data_Path.v
+.\src\IF.v
 .\src\PC_CU.v
 .\src\Reg_File.v
 .\src\ALU.v
@@ -7,4 +7,9 @@
 .\src\Double_CU.v
 .\src\Zero_Comparator.v
 .\src\Forward_And_Stall.v
-.\src\Comparator.v
+.\src\Side_Gates.v
+.\src\Decode.v
+.\src\Execute.v
+.\src\data_path.v
+.\src\mem.v
+.\src\WB.v

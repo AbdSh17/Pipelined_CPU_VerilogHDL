@@ -50,7 +50,7 @@ module forward_and_stall(rs, rd2, rd3, rd4, rt, rw2, rw3, rw4, op_code, stall, f
 	assign fwb = rt_three_buf | rt_one_buf | rt_two_buf | rt_zero_buf;
 	// ===== FW =====
 	
-	assign lw_op_code = (op_code == 'd6);
+	assign lw_op_code = (op_code == 'd6 | op_code == 'd8);
 	assign stall = (lw_op_code & and_rs2) | (lw_op_code & and_rt2);
 		
 endmodule

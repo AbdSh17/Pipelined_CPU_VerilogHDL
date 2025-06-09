@@ -8,3 +8,8 @@ i<>.\src\Double_CU.v
 i<>.\src\Zero_Comparator.v
 i<>.\src\Forward_And_Stall.v
 i<>.\src\Comparator.v
+i<>.\src\Decode.v
+i<>.\src\Execute.v
+i<>.\src\data_path.v
+i<>.\src\mem.v
+i<>.\src\WB.v

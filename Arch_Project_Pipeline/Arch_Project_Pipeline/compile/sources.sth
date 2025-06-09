@@ -1,5 +1,16 @@
 [Files List]
 C:/Aldec/Active-HDL-Student-Edition/vlib/std/src/standard.vhd=S
-C:/Users/HP/Music/Pipeline_Arch_Project2/Arch_Project_Pipeline/Arch_Project_Pipeline/src/Comparator.v=S
+C:/Users/HP/Music/Pipeline_Arch_Project2/Arch_Project_Pipeline/Arch_Project_Pipeline/src/Side_Gates.v=S
+C:/Users/HP/Music/Pipeline_Arch_Project2/Arch_Project_Pipeline/Arch_Project_Pipeline/src/mem.v=S
+C:/Users/HP/Music/Pipeline_Arch_Project2/Arch_Project_Pipeline/Arch_Project_Pipeline/src/ALU.v=S
+C:/Users/HP/Music/Pipeline_Arch_Project2/Arch_Project_Pipeline/Arch_Project_Pipeline/src/Reg_File.v=S
+C:/Users/HP/Music/Pipeline_Arch_Project2/Arch_Project_Pipeline/Arch_Project_Pipeline/src/ALU_CU.v=S
+C:/Users/HP/Music/Pipeline_Arch_Project2/Arch_Project_Pipeline/Arch_Project_Pipeline/src/Decode.v=S
+C:/Users/HP/Music/Pipeline_Arch_Project2/Arch_Project_Pipeline/Arch_Project_Pipeline/src/PC_CU.v=S
+C:/Users/HP/Music/Pipeline_Arch_Project2/Arch_Project_Pipeline/Arch_Project_Pipeline/src/Main_CU.v=S
 C:/Users/HP/Music/Pipeline_Arch_Project2/Arch_Project_Pipeline/Arch_Project_Pipeline/src/Double_CU.v=S
-C:/Users/HP/Music/Pipeline_Arch_Project2/Arch_Project_Pipeline/Arch_Project_Pipeline/src/Data_Path.v=S
+C:/Users/HP/Music/Pipeline_Arch_Project2/Arch_Project_Pipeline/Arch_Project_Pipeline/src/IF.v=S
+C:/Users/HP/Music/Pipeline_Arch_Project2/Arch_Project_Pipeline/Arch_Project_Pipeline/src/Forward_And_Stall.v=S
+C:/Users/HP/Music/Pipeline_Arch_Project2/Arch_Project_Pipeline/Arch_Project_Pipeline/src/WB.v=S
+C:/Users/HP/Music/Pipeline_Arch_Project2/Arch_Project_Pipeline/Arch_Project_Pipeline/src/Execute.v=S
+C:/Users/HP/Music/Pipeline_Arch_Project2/Arch_Project_Pipeline/Arch_Project_Pipeline/src/data_path.v=S
