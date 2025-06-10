@@ -1,6 +1,6 @@
-module double_CU(stall, op_code, rd, clk, add_pc, add_rd, add_imm, turn_off);
+module double_CU(call, stall, op_code, rd, clk, add_pc, add_rd, add_imm, turn_off);
 	
-	input [5:0] op_code; input [3:0] rd; input clk, stall; // Op code to check if operation is double typel; Clock for D-latch ; rd to check if it's ODD
+	input [5:0] op_code; input [3:0] rd; input clk, stall, call; // Op code to check if operation is double typel; Clock for D-latch ; rd to check if it's ODD
 	output add_pc, add_rd, add_imm, turn_off; // Flags that D_CU gives
 	
 	wire [3:0] splited_op_code;	// just need four bits (to make the comparator smaller)
@@ -29,7 +29,7 @@ module double_CU(stall, op_code, rd, clk, add_pc, add_rd, add_imm, turn_off);
 	assign add_rd = ff_and_op; // if second cycle
 	assign add_imm = ff_and_op;	// if second cycle
 	assign add_pc = (~operation_is_double) | (ff_and_op) | (rd[0]); // if there's no double operation, or second cycle or odd RD
-	assign turn_off = operation_is_double & rd[0]; // if odd RD while the operation is double type
+	assign turn_off = (operation_is_double & rd[0]) || (call == 1); // if odd RD while the operation is double type
 	
 endmodule 
 	
@@ -49,7 +49,7 @@ module test_D_CU;
 	reg [5:0] op_code; reg [3:0] rd; reg clk;
 	
 	// dcu dd(op_code, rd, clk, add_pc, add_rd, add_imm, turn_off);
-    double_CU dd(stall, op_code, rd, clk, add_pc, add_rd, add_imm, turn_off);	
+    // double_CU dd(stall, op_code, rd, clk, add_pc, add_rd, add_imm, turn_off);	
 	reg change;
 	
 	initial begin

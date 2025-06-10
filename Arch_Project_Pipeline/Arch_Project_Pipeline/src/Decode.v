@@ -1,8 +1,8 @@
-module decode(stall, clk, clear, inst_buff_data, pc_buff_tun, add_rd, add_imm, turn_off, pc_src, branch, jump, jr, rw, reg_w, fwa, fwb, bus_w, alu_fw, mem_fw, kill, cu_flags, imm_buf, bus_a, bus_b, rd_buf2, rb, rs, alu_op, op_code, reg_dst_out);
+module decode(pc, stall, clk, clear, inst_buff_data, pc_buff_tun, add_rd, add_imm, turn_off, pc_src, branch, jump, jr, rw, reg_w, fwa, fwb, bus_w, alu_fw, mem_fw, kill, cu_flags, imm_buf, bus_a, bus_b, rd_buf2, rb, rs, alu_op, op_code, reg_dst_out, call);
 	
 	input stall, clk, clear, reg_w, add_rd, add_imm, turn_off;
 	input [1:0] fwa, fwb;
-	input [31:0] bus_w, alu_fw, mem_fw, inst_buff_data, pc_buff_tun;
+	input [31:0] bus_w, alu_fw, mem_fw, inst_buff_data, pc_buff_tun, pc;
 	input [3:0] rw;
 
 	
@@ -23,10 +23,10 @@ module decode(stall, clk, clear, inst_buff_data, pc_buff_tun, add_rd, add_imm, t
 	wire signed [13:0] imm;
 	wire [31:0] rs_cmp, jr;
 	 
-	wire call, jump_f, jr_f, lz, gz, bz;
+	wire jump_f, jr_f, lz, gz, bz;
 
-	wire imm_ext, reg_dst, imm_src;
-	output reg_dst_out;
+	wire imm_ext, reg_dst, imm_src, wire_call, dff_out;
+	output reg_dst_out, call;
 										   
 	// module control_signals(instruction, stall, turn_off, clk, clear, op_code, rd, rs, rt, imm);
 	control_signals cs(inst_buff_data, stall, turn_off, clk, clear, op_code, rd, rs, rt, imm);
@@ -34,53 +34,60 @@ module decode(stall, clk, clear, inst_buff_data, pc_buff_tun, add_rd, add_imm, t
 	branch_and_jump baj(pc_buff_tun, turn_off, clk, clear, imm, rs_cmp, branch, jump, eqz, ltz);
 	
 	// module Main_Control (Opcode, Turn_OFF, stall, Flags, Call, jump_F, JR_F, LZ, GZ, BZ);
-	Main_Control mcu(op_code, turn_off, stall, cu_flags, call, jump_f, jr_f, lz, gz, bz);
+	Main_Control mcu(op_code, turn_off, stall, cu_flags, wire_call, jump_f, jr_f, lz, gz, bz);
+	
+	// module D_FF(clk, data, out);
+	D_FF #(1) dff1(clk, call, dff_out);
+	assign call = wire_call & ~(dff_out);
 	
 	// module PC_CU (ZF, NF, Jump_F, JR_F, CLL, BZ, GZ, LZ, PC_Src, Kill);
 	PC_CU pcu(eqz, ltz, jump_f, jr_f, call, bz, gz, lz, pc_src, kill);
 	
 	assign imm_ext = cu_flags[4];
 	assign reg_dst = cu_flags[6];
-	assign reg_dst_out = ltz;
+	assign reg_dst_out = rd_buf2;
 	assign imm_src = cu_flags[7];
 	
 	// imm_value(imm, add_imm, imm_ext, imm_buf);
 	imm_value imv1(imm, add_imm, imm_ext, imm_buf);	
 	
 //m     reg_file_buf(rs, rt, rd, rw, add_rd, call, reg_dst, clear, clk, reg_w, bus_w, alu_fw, mem_fw, fwa, fwb, rs_cmp, jr, bus_a, bus_b, rd_buf, rb);
-	reg_file_buf rfb(rs, rt, rd, rw, add_rd, call, reg_dst, clear, clk, reg_w, bus_w, alu_fw, mem_fw, fwa, fwb, rs_cmp, jr, bus_a, bus_b, rd_buf2, rb);  
+	reg_file_buf rfb(pc, rs, rt, rd, rw, add_rd, call, reg_dst, clear, clk, reg_w, bus_w, alu_fw, mem_fw, fwa, fwb, rs_cmp, jr, bus_a, bus_b, rd_buf2, rb);  
 	
 	// module ALU_CU (OP, stall, ALU_OP);
 	ALU_CU acu(op_code, stall, alu_op);
 	
 endmodule
 																							 // output
-module reg_file_buf(rs, rt, rd, rw, add_rd, call, reg_dst, clear, clk, reg_w, bus_w, alu_fw, mem_fw, fwa, fwb, rs_cmp, jr, bus_a, bus_b, rd_buf, rb); 
+module reg_file_buf(pc, rs, rt, rd, rw, add_rd, call, reg_dst, clear, clk, reg_w, bus_w, alu_fw, mem_fw, fwa, fwb, rs_cmp, jr, bus_a, bus_b, rd_buf, rb); 
 	
 	input add_rd, reg_dst, call, clk, clear, reg_w;	  // 6
 	input [1:0] fwa, fwb;  // 8
 	input [3:0] rs, rd, rt, rw;	// 11
-	input [31:0] alu_fw, mem_fw, bus_w;	// 15
+	input [31:0] alu_fw, mem_fw, bus_w, pc;	// 15
 	
 	output [31:0] bus_a, bus_b, rs_cmp, jr;	// 21
 	output [3:0] rd_buf, rb;
 	
-	wire [3:0] rb_value, rd_value;
-	wire [31:0] bus_a_wire, bus_b_wire;
+	wire [3:0] rb_value, rd_value, rw_wire;
+	wire [31:0] bus_a_wire, bus_b_wire, bus_w_wire;
 	
 	
 	MUX #(.WIDTH(4), .INPUTS(2)) M1({(rd + 32'b1), rd}, add_rd, rd_value);
 	MUX #(.WIDTH(4), .INPUTS(2)) M2({rd_value, rt}, reg_dst, rb_value);
-	MUX #(.WIDTH(4), .INPUTS(2)) M3({4'he, rd_value}, call, rd_buf);
+	assign rd_buf = rd_value;
+	
 	
 	assign rb = rb_value;
 	
 	
 	// module Reg_File(RA, RB, RW, C, RegW, CLK, BusA, BusB, BusW);
-	Reg_File rf1(rs, rb_value, rw, clear, reg_w, clk, bus_a_wire, bus_b_wire, bus_w);
+	Reg_File rf1(rs, rb_value, rw_wire, clear, (reg_w | call), clk, bus_a_wire, bus_b_wire, bus_w_wire);
 	
 	MUX #(.WIDTH(32), .INPUTS(4)) M4({bus_w, mem_fw, alu_fw, bus_a_wire}, fwa, bus_a);
 	MUX #(.WIDTH(32), .INPUTS(4)) M5({bus_w, mem_fw, alu_fw, bus_b_wire}, fwb, bus_b);
+	MUX #(.WIDTH(32), .INPUTS(2)) M6({pc, bus_w}, call, bus_w_wire);
+	MUX #(.WIDTH(4), .INPUTS(2)) M7({4'he, rw}, call, rw_wire);
 	assign rs_cmp = bus_a;
 	assign jr = bus_a;
 	
@@ -149,10 +156,10 @@ module branch_and_jump(pc_buff, turn_off, clk, clear, imm, rs, branch, jump, eqz
 	wire signed [31:0] imm_extened, add_value;
 	
 	// module register(data, en, clk, clear, out);
-	register r1(pc_buff, ~turn_off, clk, clear, pc_buff2);
+	// register r1(pc_buff, ~turn_off, clk, clear, pc_buff2);
 	
 	assign imm_extened = {{18{imm[13]}}, imm};
-	assign add_value = imm_extened + pc_buff2;
+	assign add_value = imm_extened + pc_buff;
 	
 	assign branch = add_value;
 	assign jump = add_value;

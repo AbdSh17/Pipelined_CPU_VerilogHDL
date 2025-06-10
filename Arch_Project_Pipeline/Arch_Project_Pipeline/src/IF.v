@@ -1,5 +1,5 @@
-module IF(branch, jr, jump, pc_src, stall, clk, clear, kill, inst_buff_data, pc_buff_tun, add_rd_buf, add_imm_buf, turn_off, pc_out);
-	input stall, clk, clear, kill;
+module IF(call, branch, jr, jump, pc_src, stall, clk, clear, kill, inst_buff_data, pc_buff_tun, add_rd_buf, add_imm_buf, turn_off, pc_out);
+	input stall, clk, clear, kill, call;
 	input [1:0] pc_src;
 	input [31:0] branch, jr, jump;
 	
@@ -22,7 +22,7 @@ module IF(branch, jr, jump, pc_src, stall, clk, clear, kill, inst_buff_data, pc_
 	assign pc_out = pc;
 	
 	
-	// module program_counter(add_pc, pc_plus_one, pc_in, branch, jr, jump, pc_src, stall, clk, clear, pc);
+//modue program_counter(add_pc, pc_plus_one, pc_in, branch, jr, jump, pc_src, stall, clk, clear, pc);
 	program_counter pc1(add_pc, pc_plus_one, pc, branch, jr, jump, pc_src, stall, clk, clear, pc);
 	
 	// module pc_next(pc, clk, turn_off, clear, pc_plus_one, pc_buff_tun);
@@ -32,7 +32,7 @@ module IF(branch, jr, jump, pc_src, stall, clk, clear, kill, inst_buff_data, pc_
 	IS_MEM ism1(pc, kill, inst_buff_data, d_opcode, d_rd);
 	
 	// module double_CU(op_code, rd, clk, add_pc, add_rd, add_imm, turn_off);
-	double_CU dcu(stall, d_opcode, d_rd, clk, add_pc, add_rd, add_imm, turn_off);
+	double_CU dcu(call, stall, d_opcode, d_rd, clk, add_pc, add_rd, add_imm, turn_off);
 	
 	register #(1) r1(add_imm, ~(temp_turn_off | stall), clk, clear, add_imm_buf);
 	register #(1) r2(add_rd, ~(temp_turn_off | stall), clk, clear, add_rd_buf);
@@ -87,7 +87,6 @@ module InstructionMemory (address, instruction);
 	
 	parameter WIDTH = 32;
     parameter DEPTH = 256;
-   // parameter INSTRUCTIONS_FILE = "program.mem";
 	
     input  [7 : 0] address;
     output [WIDTH - 1 : 0] instruction;
@@ -96,8 +95,55 @@ module InstructionMemory (address, instruction);
 
 	
     initial begin
-       // $readmemh(INSTRUCTIONS_FILE, mem); // Load instructions from file
-	   /*
+
+    end
+    assign instruction = mem[address];
+	
+	initial begin
+		
+		integer i;
+    	for (i = 0; i < 128; i = i + 1)
+        	mem[i] = 32'b0;
+			
+			
+		// $readmemh("Duplicate_Nums.mem", mem);
+		// $readmemh("Summation.mem", mem);
+		// $readmemh("Edge_LDW.mem", mem);
+		// $readmemh("Nested_Loops.mem", mem);
+		
+		
+			
+  /*	Test if two memories are eqauil (raise an error in mem[5])
+mem[0] = 32'h00000000;
+mem[1] = 32'h20000000; // LDW R0, R13, 0
+mem[2] = 32'h3C000021; // CLL 30   
+
+mem[35] = 32'h18B40002; // LW R2, R13, 2
+mem[36] = 32'h14880001; // ADDI R2, R2, 1
+mem[37] = 32'h19800000; // LW R6, R0, 0
+mem[38] = 32'h3C00000f; // CLL 50
+mem[39] = 32'h19800000; // LW R6, R0, 0
+mem[40] = 32'h14000001; // ADDI R0, R0, 1
+mem[41] = 32'h14883FFF; // ADDI R2, R2, -1
+mem[42] = 32'h2C083FFC; // BGZ R2, -4
+mem[43] = 32'h38000021; // J 71	 
+
+mem[53] = 32'h18F40002; // LW R3, R13, 2
+mem[54] = 32'h18740001; // LW R1, R13, 1
+mem[55] = 32'h19C40000; // LW R7, R1, 0
+mem[56] = 32'h0E1D8000; // CMP R8, R6, R7
+mem[57] = 32'h28200011; // BZ R8, 74
+mem[58] = 32'h14440001; // ADDI R1, R1, 1
+mem[59] = 32'h14CC3FFF; // ADDI R3, R3, -1
+mem[60] = 32'h2C0C3FFB; // BGZ R3, -5
+mem[61] = 32'h34380000; // JR R14
+
+mem[74] = 32'h16A80001; // ADDI R10, R10, 1
+mem[75] = 32'h1EAC0005; // SW R10, R11, 0
+ */
+
+			
+/*	LDW, SDW
 mem[0]  = 32'h14440005; // ADDI R1, R1, 5
 mem[1]  = 32'h1C400000; // SW R1, [R0 + 0]
 mem[2]  = 32'h14000001; // ADDI R0, 1
@@ -105,10 +151,31 @@ mem[3]  = 32'h24000001; // SWD R0, [R0 + 0]
 mem[4]  = 32'h14803FFD;	// ADDI R2, R0, -3
 mem[5]  = 32'h30083FFB;	// BLZ R2, -6
 mem[6]  = 32'h20000000;	// LWD R0, [R0 + 0]
-mem[7]  = 32'h20400000;
-mem[8]  = 32'h24000004;	// BLZ R2, -6 
+mem[7]  = 32'h20400000; // LDW R1, [R0 + 0]
+mem[8]  = 32'h24000004;	// SDW R0, [R0 + 4]  
+
+*/ 
+
+/*	   CALL
+mem[0]  = 32'h3C000010;
+mem[1]  = 32'h3C00001F;
+mem[2] = 32'h3C00002F;
+mem[16]  = 32'h14440005;
+mem[17]  = 32'h1C400000;
+mem[18]  = 32'h14000001;
+mem[19]  = 32'h14803FFD;
+mem[20]  = 32'h30083FFC;
+mem[21]  = 32'h34380000;
+mem[32]  = 32'h18C00000;
+mem[33]  = 32'h0510C000;
+mem[34] = 32'h14003FFF;
+mem[35] = 32'h2C003FFD;
+mem[36] = 32'h28003FFC;
+mem[37] = 32'h1D200005;
+mem[38] = 32'h34380000;
 */
 
+/*	  NESTED LOOPS
 mem[0]  = 32'h15980003; // ADDI R6, R0, 3
 mem[1]  = 32'h15540003; // ADDI R5, R0, 3
 mem[2]  = 32'h14440005; // ADDI R1, R1, 5
@@ -120,54 +187,13 @@ mem[7]  = 32'h2C143FFD; // BGZ R5, -3
 mem[8]  = 32'h14000001; // ADDI R0, R0, 1
 mem[9]  = 32'h15983FFF; // ADDI R6, R6, -1
 mem[10] = 32'h2C183FF7; // BGZ R6, -8
-
-
-    end
+*/
+		
+	end
 	
-    assign instruction = mem[address];
+	
 endmodule
 
-/*
-  mem[0]  = 32'h14440005; // ADDI R1, R1, 5
-mem[1]  = 32'h11111111;
-mem[2]  = 32'h11111111;
-mem[3]  = 32'h11111111;
-mem[4]  = 32'h11111111;
-
-mem[5]  = 32'h1C400000; // SW R1, [R0 + 0]
-mem[6]  = 32'h11111111;
-mem[7]  = 32'h11111111;
-mem[8]  = 32'h11111111;
-mem[9]  = 32'h11111111;
-
-mem[10] = 32'h14000001; // ADDI R0, 1
-mem[11] = 32'h11111111;
-mem[12] = 32'h11111111;
-mem[13] = 32'h11111111;
-mem[14] = 32'h11111111;
-
-mem[15] = 32'h24000001; // SWD R0, [R0 + 1]
-mem[16] = 32'h11111111;
-mem[17] = 32'h11111111;
-mem[18] = 32'h11111111;
-mem[19] = 32'h11111111;
-
-mem[20] = 32'h14803FFD; // ADDI R2, R0, -3
-mem[21] = 32'h11111111;
-mem[22] = 32'h11111111;
-mem[23] = 32'h11111111;
-mem[24] = 32'h11111111;
-
-mem[25] = 32'h30083FFA; // BLZ R2, -6
-mem[26] = 32'h20000000; // LWD R0, [R0 + 0]
-mem[27] = 32'h11111111;
-mem[28] = 32'h11111111;
-mem[29] = 32'h11111111;
-mem[30] = 32'h11111111;
-
-mem[31] = 32'h24000004; // SWD R0, [R0 + 4]
-
-*/
 
 module pc_next(pc, clk, turn_off, clear, pc_plus_one, pc_buff_tun);
 	input [31:0] pc;
@@ -183,7 +209,7 @@ module pc_next(pc, clk, turn_off, clear, pc_plus_one, pc_buff_tun);
 	assign pc_plus_one = pc_add;
 	
 	//module register(data, en, clk, clear, out);
-	register R1(pc_add, ~turn_off, clk, clear, pc_buff_tun);
+	register R1(pc, 1'b1, clk, clear, pc_buff_tun);
 endmodule
 	
 module test_if;
@@ -198,7 +224,7 @@ module test_if;
 	
 	
 	// IF(branch, jr, jump, pc_src, stall, clk, clear, kill, inst_buff_data, pc_buff_tun,add_rd, add_imm, turn_off);
-	IF if1(branch, jr, jump, pc_src, stall, clk, clear, kill, inst_buff_data, pc_buff_tun,add_rd, add_imm, turn_off, null_d);
+//	IF if1(branch, jr, jump, pc_src, stall, clk, clear, kill, inst_buff_data, pc_buff_tun,add_rd, add_imm, turn_off, null_d);
 		
 		
 	initial begin

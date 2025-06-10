@@ -20,7 +20,14 @@ module ALU(input_1, input_2, alu_op, zero_falg, negative_flag, output_0);
 					output_0 = input_1 - input_2;
 				CMP:
 				begin
-					output_0 = input_1 == input_2;
+					// output_0 = input_1 == input_2;
+					if (input_1 == input_2)
+						output_0 = 0;
+					else if (input_1 < input_2)
+						output_0 = -1;
+					else if (input_1 > input_2)
+						output_0 = 1;
+						
 					zero_falg = input_1 == input_2;
 					negative_flag = input_1 < input_2;
 				end

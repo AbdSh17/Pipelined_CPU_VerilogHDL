@@ -58,7 +58,7 @@ module register(data, en, clk, clear, out);
 	output reg [n - 1: 0] out;
 	
 	always @(posedge clk) begin
-		if (en)
+		if (en != 0)
 			out = data;
 	end
 	

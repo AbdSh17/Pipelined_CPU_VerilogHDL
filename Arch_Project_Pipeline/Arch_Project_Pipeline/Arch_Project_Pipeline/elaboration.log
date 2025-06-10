@@ -1,4 +1,4 @@
-Active-HDL 15.0.261.9132 2025-06-09 12:20:57
+Active-HDL 15.0.261.9132 2025-06-10 13:35:51
 
 Elaboration top modules:
 Verilog Module                test_decode
@@ -42,3 +42,9 @@ Library                 | Comment
 ---------------------------------------------------------------------------------------------------------
 arch_project_pipeline   | None
 ---------------------------------------------------------------------------------------------------------
+
+
+Simulation Options: asim -O5 +access +r +m+test_decode test_decode
+
+
+The performance of simulation is reduced. Version Student Edition

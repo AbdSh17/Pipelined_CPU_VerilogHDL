@@ -13,21 +13,22 @@ module data_path(clk, clear, resault_1, resault_2, resault_3, resault_4, resault
 	wire [7:0] cu_flags, cu_flags3, cu_flags4;
 	wire [5:0] op_code, op_code_buf;
 	wire [31:0] out;
+	wire call;
 	
 	assign resault_1 = inst_buff_data;
-	assign resault_2 = alu_out;
-	assign resault_3 = bus_b_buff;
-	assign resault_4 = mem_out;
-	assign resault_5 = mem_out;
-	assign resault_6 = out;
+	assign resault_2 = call;
+	assign resault_3 = reg_w;
+	assign resault_4 = rd_buf3;
+	assign resault_5 = rd_buf4;
+	assign resault_6 = rw;
 	
 	 
 	
 	//  IF(branch, jr, jump, pc_src, stall, clk, clear, kill, inst_buff_data, pc_buff_tun,add_rd, add_imm, turn_off);
-	IF if1 (branch, jr, jump, pc_src, stall, clk, clear, kill, inst_buff_data, pc_buff_tun, add_rd, add_imm, turn_off, pc_out);
+	IF if1 (call, branch, jr, jump, pc_src, stall, clk, clear, kill, inst_buff_data, pc_buff_tun, add_rd, add_imm, turn_off, pc_out);
 		
 //module decode(stall, clk, clear, inst_buff_data, pc_buff_tun, add_rd, add_imm, turn_off, pc_src, branch, jump, jr, rw, reg_w, fwa, fwb, bus_w, alu_fw, mem_fw, kill, cu_flags, imm_buf, bus_a, bus_b, rd_buf, rb);
-	decode DC1 (stall, clk, clear, inst_buff_data, pc_buff_tun, add_rd, add_imm, turn_off, pc_src, branch, jump, jr, rw, reg_w, fwa, fwb, bus_w, alu_out, mem_out, kill, cu_flags, imm_buf, bus_a, bus_b, rd_buf2, rb, rs, alu_op, op_code, reg_dst_out);
+	decode DC1 (pc_out, stall, clk, clear, inst_buff_data, pc_buff_tun, add_rd, add_imm, turn_off, pc_src, branch, jump, jr, rw, reg_w, fwa, fwb, bus_w, alu_out, mem_out, kill, cu_flags, imm_buf, bus_a, bus_b, rd_buf2, rb, rs, alu_op, op_code, reg_dst_out, call);
 	
 // module execute(clk, clear, stall, turn_off, alu_op, imm, bus_a, bus_b, rd_buf2, cu_flags, bus_b_buff, alu_out, rd_buf3, cu_flags3, reg_wr2);
 	execute exc1 (clk, clear, turn_off, alu_op, imm_buf, bus_a, bus_b, rd_buf2, cu_flags, bus_b_buff, alu_out, rd_buf3, cu_flags3, reg_wr2);
@@ -56,8 +57,8 @@ module test_decode;
 	
 	
 	initial begin
-		clk = 0;
-		repeat (200)
+		#10 clk = 0;
+		repeat (1000)
 			#10 clk = ~clk;
 	end
 	

@@ -45,6 +45,7 @@ module ram_single (clk, clear, MemWr, MemRd, in_data, address, mem_out);
     input wire [31:0] in_data;
     input wire [23:0]  address;         
     reg [31:0] mem [0:127];
+	reg [31:0] output_mem [0:1];
 
     output [31:0] mem_out;
 
@@ -60,10 +61,32 @@ module ram_single (clk, clear, MemWr, MemRd, in_data, address, mem_out);
 		integer i;
     	for (i = 0; i < 128; i = i + 1)
         	mem[i] = 32'b0;
+		
+			/*
+		mem[0] = 32'h0000000a;
+		mem[1] = 32'h00000014;
+		mem[2] = 32'h00000005;
+			
+		mem[10] = 32'h00000001;
+		mem[11] = 32'h00000002;
+		mem[12] = 32'h00000003;
+		mem[13] = 32'h00000004;
+		mem[14] = 32'h00000005;
+		
+		
+		mem[20] = 32'h0000000a;
+		mem[21] = 32'h00000006;
+		mem[22] = 32'h00000007;
+		mem[23] = 32'h00000008;
+		mem[24] = 32'h00000009;
+		  */
+		
 	
 		
         #50000; // Or wait for enough cycles
         $writememh("mem_out.hex", mem);
+		output_mem = mem[5:6];
+		$writememh("Duplicate_Nums.hex", output_mem);
     end
 
 endmodule
