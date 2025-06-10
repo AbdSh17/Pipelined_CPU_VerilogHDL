@@ -1,6 +1,6 @@
-## Assembly Instruction Examples with HEX Codes and Final Results
+# Assembly Instruction Examples with HEX Codes and Final Results
 
-### EX1 – Test Basic Functionality
+## EX1 – Test Basic Functionality
 
 | Instruction      | HEX Code |
 | ---------------- | -------- |
@@ -13,7 +13,7 @@
 
 ---
 
-### EX2 – Test Branch with LDW, SDW and Hazard Detection
+## EX2 – Test Branch with LDW, SDW and Hazard Detection
 
 | Instruction       | HEX Code |
 | ----------------- | -------- |
@@ -41,7 +41,7 @@ MEM[7]: 2
 
 ---
 
-### EX3 – Important: Hazard Detection When ODD
+## EX3 – Important: Hazard Detection When ODD
 
 | Instruction       | HEX Code |
 | ----------------- | -------- |
@@ -70,7 +70,7 @@ MEM[7]: 2
 
 ---
 
-### EX4 – Test Nested Loops
+## EX4 – Test Nested Loops
 
 | Instruction      | HEX Code |
 | ---------------- | -------- |
@@ -102,3 +102,42 @@ MEM[9]: 9
 MEM[10]: a
 MEM[11]: b
 ```
+## EX5 – Custom Call and Loop Example
+
+| Instruction         | HEX Code  |
+| ------------------- | --------- |
+| CLL 10              | 3C000010  |
+| CLL 20              | 3C00001F  |
+
+**Subroutine at Address 16 (called from above):**
+
+| Instruction            | HEX Code  |
+| ---------------------- | --------- |
+| ADDI R1, R1, 5         | 14440005  |
+| SW R1, [R0 + 0]        | 1C400000  |
+| ADDI R0, R0, 1         | 14000001  |
+| ADD R2, R0, -3         | 14803FFD  |
+| BLZ R2, -4             | 30083FFC  |
+| JR R14                 | 34380000  |
+
+**Subroutine at Address 32 (called from above):**
+
+| Instruction            | HEX Code  |
+| ---------------------- | --------- |
+| LW R3, [R0 + 0]        | 18C00000  |
+| ADD R4, R4, R3         | 0510C000  |
+| ADDI R0, -1            | 14003FFF  |
+| BGZ R0, -3             | 2C003FFD  |
+| BZ R0, -4              | 28003FFC  |
+| SW R4, [R8 + 5]        | 1D200005  |
+| JR R14                 | 34380000  |
+
+**Final Result:**
+
+```
+MEM[0]: 5
+MEM[1]: A
+MEM[2]: F
+MEM[5]: 0x1e
+```
+
