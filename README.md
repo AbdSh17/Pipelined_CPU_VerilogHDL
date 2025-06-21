@@ -102,9 +102,10 @@ Hazards are resolved using a Forwarding Unit and Stall/Kill control logic.
 ## How to Run
 
 1. Edit `Instructions.txt` with your program in binary or hex format.
-2. Compile all modules with your preferred simulator (ModelSim/Active-HDL).
-3. Run `test_PipelinedProcessor.v` to validate outputs.
-4. View waveforms and verify correct pipeline execution.
+2. you can convert your instructions from `Assembly` to `HEX` format using `instructions_converter.py`
+3. Compile all modules with your preferred simulator (ModelSim/Active-HDL).
+4. Run `test_PipelinedProcessor.v` to validate outputs.
+5. View waveforms and verify correct pipeline execution.
 
 ---
 
